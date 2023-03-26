@@ -1,0 +1,18 @@
+<header>
+    <div id="logo">Logo</div>
+    <nav>
+        <ul>
+            <li><a href="">Tableau de bord</a></li>
+            <li><a href="">Tickets</a></li>
+            <li><a href="">Clients</a></li>
+        </ul>
+    </nav>
+    <div id="account">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div>{{ app.user.email }}</div>
+        <div><a href="{{path('app_logout')}}">Déconnexion</a></div>
+        {% else %}
+        <div><a href="{{path('app_login')}}">Connexion</a></div>
+        {% endif %}
+    </div>
+</header>

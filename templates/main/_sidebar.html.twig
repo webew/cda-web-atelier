@@ -1,0 +1,28 @@
+<aside id="sidebar">
+
+    {% set currentRoute = app.request.attributes.get('_route') %}
+    {% set menus = {
+        'app_ticket_index' : "Gestion des tickets",
+        'app_materiel_index' : "Gestion des matériels",
+        'app_marque_index' : "Gestion des marques",
+        'app_type_index' : "Gestion des types de matériels",
+        'app_piece_index' : "Gestion des pièces",
+        'app_statut_index' : "Gestion des statuts",
+    } %}
+
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <nav>
+        <ul>
+            {% if is_granted('ROLE_ADMIN') %}
+            {% set active = 'app_client_index'==currentRoute ? 'active' : '' %}
+            <li class='{{ active }}'><a href="{{path('app_client_index')}}">Gestion des clients</a></li>
+            {% endif %}
+            {% for route,texte in menus %}
+                {% set active = route==currentRoute ? 'active' : '' %}
+                <li class='{{ active }}'><a href="{{path(route)}}">{{ texte }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+    {% endif %}
+</aside>

@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+{# {{ form_widget(form) }} #}
+{{ form_row(form.description) }}
+{{ form_row(form.client) }}
+{{ form_row(form.materiel) }}
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+<script>
+    const selectClient = document.querySelector('#ticket_client');
+    const selectMateriel = document.querySelector('#ticket_materiel');
+    selectMateriel.style.display = 'none';
+    // sélection d'un client => affichage des la liste des matériels liés
+    selectClient.addEventListener('change', async function () {
+        const url = "{{path('app_materiels_from_client',{'id':'clientId'})}}".replace('clientId', selectClient.value);
+        const response = await fetch(url);
+        const datas = await response.json();
+        selectMateriel.innerHTML = "";
+        for (let materiel of datas) {
+            const option = document.createElement('option');
+            option.value = materiel.id;
+            option.textContent = materiel.designation + ' - ' + materiel.type.libelle + ' - ' + materiel.marque.nom
+            selectMateriel.appendChild(option);
+        };
+        selectMateriel.style.display = 'block';
+    });
+</script>

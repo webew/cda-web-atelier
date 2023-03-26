@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+:root {
+	--logo-width: 20%;
+	--profile-width: 10%;
+	--nav-width: 70%;
+	--sidebar-width: 20%;
+	--header-height: 10vh;
+	--sidebar-height: 90vh;
+	--header-bg-color: #17242c;
+	--sidebar-bg-color: #2d536b;
+	--sidebar-hover-bg-color: #17242c;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #ffffff;
+	min-height: 100vh;
+	font-family: "Poppins", sans-serif;
+}
+
+header {
+	position: fixed;
+	width: 100vw;
+	background-color: var(--header-bg-color);
+	color: white;
+	height: var(--header-height);
+	display: flex;
+	align-items: center;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+}
+
+#logo {
+	width: var(--logo-width);
+}
+
+#account {
+	width: var(--profile-width);
+}
+
+nav {
+	width: var(--nav-width);
+	display: flex;
+	justify-content: center;
+}
+
+header nav ul {
+	display: flex;
+	gap: 2rem;
+}
+
+#sidebar {
+	position: fixed;
+	width: var(--sidebar-width);
+	height: var(--sidebar-height);
+	background-color: var(--sidebar-bg-color);
+}
+
+#sidebar nav {
+	width: 100%;
+	padding: 50px 0px;
+	box-sizing: border-box;
+}
+
+#sidebar nav ul {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+#sidebar nav ul li {
+	width: 100%;
+}
+.active {
+	background-color: var(--header-bg-color);
+}
+
+#sidebar nav ul li a {
+	display: block;
+	width: 100%;
+	padding: 15px 0 15px 60px;
+	box-sizing: border-box;
+}
+
+#sidebar nav ul li a:hover {
+	background-color: var(--sidebar-hover-bg-color);
+}
+
+main {
+	padding-top: var(--header-height);
+	display: flex;
+	color: #17242c;
+}
+
+#mainSection {
+	width: 100%;
+	padding: 20px 20px 20px calc(var(--sidebar-width) + 20px);
+}
