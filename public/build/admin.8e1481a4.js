@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[328],{4819:()=>{alert("ok")}},e=>{var s;s=4819,e(e.s=s)}]);
