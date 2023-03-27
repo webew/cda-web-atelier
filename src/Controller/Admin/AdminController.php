@@ -15,4 +15,9 @@ class AdminController extends AbstractController
             'controller_name' => 'AdminController',
         ]);
     }
+    #[Route('/test', name: 'app_test')]
+    public function test(): Response
+    {
+        return new Response('test');
+    }
 }
